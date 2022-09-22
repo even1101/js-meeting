@@ -21,6 +21,18 @@ io.on('connection', (socket) => {
     
     socket.on('pre-offer', (data) => { 
         console.log(data);
+
+        const { callType, calleePersonalCode } = data;
+        const connectedUser = connectedUsers.find((userSocketId) => userSocketId === calleePersonalCode);
+
+        if (connectedUser) { 
+            const data = {
+                callerSocketId: socket.id,
+                callType
+            };
+
+            io.to(callerSocketId).emit('pre-offer', data);
+        }
     });
     
     socket.on('disconnect', () => { 
