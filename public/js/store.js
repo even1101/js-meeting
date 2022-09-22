@@ -1,5 +1,3 @@
-const e = require("express");
-
 let state = {
     socketId: null,
     localStream: null,
