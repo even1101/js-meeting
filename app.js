@@ -13,9 +13,17 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
+let connectedUsers = [];
+
 io.on('connection', (socket) => {
-    console.log('user connected to socket.io server.');
-    console.log(socket.id);
+    connectedUsers.push(socket.id);
+    console.log(connectedUsers);
+    socket.on('disconnect', () => { 
+        console.log('user is disconnected');
+
+        const newConnectedUsers = connectedUsers.filter((userSocketId) => userSocketId!== socket.id);
+        connectedUsers = newConnectedUsers;
+    });
 });
 
 server.listen(PORT, () => {
