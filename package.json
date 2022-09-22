@@ -1,0 +1,23 @@
+{
+  "name": "js-meeting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/even1101/js-meeting.git"
+  },
+  "author": "Even Chang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/even1101/js-meeting/issues"
+  },
+  "homepage": "https://github.com/even1101/js-meeting#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "socket.io": "^4.5.2"
+  }
+}
